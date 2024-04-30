@@ -19,28 +19,21 @@ public class DuplicateCharInString {
 		
 		for(Character charct: ch) {
 			
+			charMap.put(charct, charMap.getOrDefault(charct,0)+1);
 			
-			if(charMap.containsKey(charct)) {
-				
-				charMap.put(charct, charMap.get(charct)+1);
-			}
-			else {
-				
-				charMap.put(charct,1);
-			}
 		}
 		
 		
 		Set<Map.Entry<Character,Integer>> entSet = charMap.entrySet();
 		
-		for(Map.Entry<Character, Integer> entrySet: entSet) {
+		for(char cha : charMap.keySet()) {
 			
+			int no = charMap.get(cha);
 			
-			if(entrySet.getValue()>1) {
+			if(no>1) {
 				
-				
-				System.out.println("Char is:"+entrySet.getKey()+""
-						+ " value is:"+ entrySet.getValue());
+				System.out.println("Char is:"+cha+""
+						+ " value is:"+ no);
 				
 			}
 		}
